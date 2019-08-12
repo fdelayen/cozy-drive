@@ -20,7 +20,8 @@ const Pending = translate()(props => (
 ))
 
 const Item = translate()(({ file, status }) => {
-  const { filename, extension } = CozyFile.splitFilename(file)
+  //In splitFileName we expect to get an object with a name property
+  const { filename, extension } = CozyFile.splitFilename({ name: file })
   let statusIcon
   switch (status) {
     case 'loading':
